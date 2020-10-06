@@ -16,3 +16,5 @@ click Load unpacked and select tinder-network-extension folder
 ### Want to help
 If you like this chrome extension, please star this repository. <br>
 If you want to contribute to this extension, feel free to create a pull request.
+
+[![HitCount](http://hits.dwyl.com/taheroo/tinder-network-extension.svg)](http://hits.dwyl.com/taheroo/tinder-network-extension)
