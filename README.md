@@ -7,7 +7,7 @@ Chrome Extension to observe and analyze Tinder traffic
 `git clone https://github.com/taheroo/tinder-network-extension`
 
 go to chrome://extensions/</br>
-click Load unpacked and select tinder-network-extension folder
+enable Developer mode then click Load unpacked and select tinder-network-extension folder
 
 ## Usage Example
 
