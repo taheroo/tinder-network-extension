@@ -6,6 +6,29 @@ var swipedLeftCount = 0;
 var swipedRightCount = 0;
 var profiles_photo_map = new Map(); // store profile photos: key: tinder profile id, [] array of photos
 
+// Show Tinder Access Token
+
+var onBeforeSendHeadersCallback = function (details) {
+  for (let elem of details.requestHeaders) {
+    if (elem.name == "X-Auth-Token") {
+      console.log("X-Auth-Token", elem.value);
+      var tinder_access_token = elem.value;
+      chrome.extension.onConnect.addListener(function (port) {
+        port.postMessage({
+          action: "updateTinderAccessToken",
+          source: tinder_access_token,
+        });
+      });
+    }
+  }
+};
+
+chrome.webRequest.onBeforeSendHeaders.addListener(
+  onBeforeSendHeadersCallback,
+  { urls: ["*://*.gotinder.com/*"] },
+  ["blocking", "requestHeaders"]
+);
+
 // Use the chrome.webRequest API to observe and analyze traffic
 
 var onCompleted_callback = function (details) {
